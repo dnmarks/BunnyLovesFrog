@@ -9,6 +9,8 @@ var isMovingLeft = false;
 var isMovingRight = false;
 var frog;
 var bump;
+var score =0;
+var scoreText; 
 
 var newTexture;
 
@@ -55,10 +57,12 @@ function onLoad () {
 	bunny.x = app.renderer.width / 2;
 	bunny.y = app.renderer.height / 2;
 
+	scoreText = new PIXI.Text('Score: ' + score);
 
 	app.stage.addChild(ground);
 	app.stage.addChild(bunny);
 	app.stage.addChild(frog);
+	app.stage.addChild(scoreText);
 
 
 	// Listen for animate update
@@ -68,8 +72,7 @@ function onLoad () {
 }
 
 function update (delta) {
-	//bunny.rotation += 0.1 * delta;
-
+	scoreText.text = "Score: " + score;
 	//check horizontal motion
 	if (isMovingLeft){
 		bunny.x -= bunnySpeed * delta;
@@ -111,6 +114,7 @@ function checkCollisions(){
 		var tweenSpeed = .35;
 		TweenLite.to(frog.scale, tweenSpeed, {x:0, y:0});
 		frog.caught = true;
+		score += 1;
 	}
 }
 
