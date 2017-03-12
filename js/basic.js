@@ -16,7 +16,7 @@ var newTexture;
 
 function onLoad () {
 	console.log("test");
-	app = new PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
+	app = new PIXI.Application(800, 600, {backgroundColor : 0xdd99bb});
 	document.body.appendChild(app.view);
 
 	// create a new Sprite from an image path
